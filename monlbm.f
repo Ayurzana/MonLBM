@@ -40,7 +40,6 @@
       ii=0
       do kk=1,mstep
       ii=ii+1
-	  
       call collesion
       call streaming
       call sfbound
@@ -66,10 +65,11 @@
       subroutine subgrid
       include 'param.h'
       cc=0.0002                ! smagorinsky constant 0.0009,0.0002,0.00015
-      poten=0.0                ! nonequilibirium stress summation
+
       alpha=(1.0/ome-0.5)/3.0	  
       DO i=0,n
       DO j=0,m
+      poten=0.0                ! nonequilibirium stress summation      
       t1=u(i,j)*u(i,j)+v(i,j)*v(i,j)
       DO k=0,8
       t2=u(i,j)*cx(k)+v(i,j)*cy(k)
